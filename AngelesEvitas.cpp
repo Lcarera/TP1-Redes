@@ -209,9 +209,7 @@ void verificarResultado(float eps, int maximoDias, atomic<float>* evitas, atomic
 void agregarHijo(atomic<float>* lista, int dia, float poder, int maximoDias)
 {
     lista[dia] =  lista[dia] + 1;
-    //cout << " poder antes de sumar: " << lista[dia + maximoDias] <<endl;
     lista[dia + maximoDias] = lista[dia + maximoDias] + poder;
-    //cout << " poder despues de sumar: " << lista[dia + maximoDias] << endl;
 }
 
 void experimento(float probabilidadNacimiento, float probabilidadBerserker, int intentosProcreacion, atomic<float>* lista, int maximoDias)
@@ -220,7 +218,6 @@ void experimento(float probabilidadNacimiento, float probabilidadBerserker, int 
     {    
         auto datosHijo = crearHijos(probabilidadNacimiento,probabilidadBerserker,intentosProcreacion);
         auto [tipo, poder, pid, ppid, naturaleza] = datosHijo;
-        //cout << tipo;
         agregarHijo(lista, i , poder, maximoDias);
         cout << "Tipo: " << tipo << " Poder: " << poder << " Pid: "<< pid <<" PPID:"<< ppid<< " DIA: "<< i <<endl;      
         if(naturaleza == "berserker")
