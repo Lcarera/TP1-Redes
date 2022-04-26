@@ -67,9 +67,9 @@ int main(int argc, char* argv[])
     }
     else
     {
-        int liliPid = fork();
-        cout << "Lili pid: " <<  liliPid << endl;
-        if (liliPid == 0)
+        int lilithPid = fork();
+        cout << "Lilith pid: " <<  lilithPid << endl;
+        if (lilithPid == 0)
         {
             probabilidadNacimiento = ps[1];
             probabilidadBerserker = ps[2];
