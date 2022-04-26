@@ -201,7 +201,8 @@ void verificarResultado(float eps, int maximoDias, atomic<float>* evitas, atomic
             cout << "Hay: "<< evitas[i] << " evitas" << " , con un poder total de : "<< evitas[i + maximoDias] << endl;
             return;        
         }
-    }                                                                                                               
+    }                       
+    cout << "------------------SIMULACION FALLIDA ----------------" << endl;
     cout << "No se encontro un dia de mismo poder" << endl;
     return;
 }                                                                                       
