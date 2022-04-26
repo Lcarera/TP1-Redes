@@ -122,23 +122,23 @@ tuple<string,double, int, int, string> crearHijos(float probabilidadNacimiento, 
         default_random_engine generator (seed);
         uniform_real_distribution<double> distribution(0.0,1.0);
         normal_distribution<double> ap_distribution(u,std);
-        if ( tipo == "evita" && generarNumeroRandom() <= probabilidadBerserker)
+        if(generarNumeroRandom() <= probabilidadNacimiento)
         {
-            childPid = fork();
-            if (childPid == 0)
+            if ( tipo == "evita" && generarNumeroRandom() <= probabilidadBerserker)
             {
-                naturaleza = "berserker";
-                result = make_tuple(tipo,ap_distribution(generator)*2, getpid(), getppid(), naturaleza);
-                return result;
+                childPid = fork();
+                if (childPid == 0)
+                {
+                    naturaleza = "berserker";
+                    result = make_tuple(tipo,ap_distribution(generator)*2, getpid(), getppid(), naturaleza);
+                    return result;
+                }
+                
             }
-            
-        }
-        else
-        {
-            childPid = fork();
-            if (childPid == 0)
+            else
             {
-                if(generarNumeroRandom() <= probabilidadNacimiento)
+                childPid = fork();
+                if (childPid == 0)
                 {
                     result = make_tuple(tipo,fabsf(ap_distribution(generator)), getpid(), getppid(), naturaleza);
                     return result;
